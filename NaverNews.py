@@ -56,6 +56,7 @@ def crawler (maxpage,query,s_date,e_date) :
                 if urls["href"].startswith("https://news.naver.com"):
                     news_detail = get_news(urls["href"])
 
+                    # 날짜, 언론사 ,제목, 내용, 링크 
                     f.write("{}\t{}\t{}\t{}\t{}\n".format(news_detail[1], news_detail[4], news_detail[0], news_detail[2], news_detail[3]))
             except Exception as e:
                 print(e)
@@ -73,7 +74,7 @@ def excel_make () :
 
 def main () :
     maxpage = input("최대 출력할 페이지수 입력하시오: ") 
-    query = input("검색어 입력: ")
+    query = "에어팟 프로"
     s_date = input("시작날짜 입력(2019.01.01):")
     e_date = input("끝날짜 입력(2019.04.28):")
     crawler(maxpage,query,s_date,e_date) 
